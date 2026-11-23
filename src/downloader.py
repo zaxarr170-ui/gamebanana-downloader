@@ -4,7 +4,7 @@ import sys
 import os
 
 # Принудительно включаем UTF-8 для корректного отображения эмодзи в Windows
-if sys.stdout.encoding != 'utf-8':
+if getattr(sys.stdout, "encoding", None) != 'utf-8':
     try:
         sys.stdout.reconfigure(encoding='utf-8')
     except AttributeError:
